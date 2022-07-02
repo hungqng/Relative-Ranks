@@ -16,3 +16,8 @@ class Solution:
         medal = ["Gold Medal", "Silver Medal", "Bronze Medal"] + [str(i + 1) for i in range(3, len(score))]
         dt = dict(zip(dunums, medal))
         return [dt[i] for i in score]
+
+        # Solution 2
+        s = {n: i for i, n in enumerate(sorted(score, reverse=True))}
+        medals = ['Gold', 'Silver', 'Bronze']
+        return [str(s[n]+1) if s[n] >= len(medals) else (medals[s[n]] + ' Medal') for n in score]
